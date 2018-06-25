@@ -1,4 +1,4 @@
-function updateDOM(identicon) {
+function updateGravatar(identicon) {
   for(let column = 0; column < 5; column++) {
     for(let row = 0; row < 5; row++) {
       if (identicon.positions[column][row]) {
@@ -8,4 +8,26 @@ function updateDOM(identicon) {
       }
     }
   }
+}
+
+function updateComments(comments) {
+  clearComments()
+  comments.map(function(c) {
+    addComment(c)
+  })
+}
+
+function clearComments() {
+  container = document.getElementById("commentsContainer")
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+}
+
+function addComment(comment) {
+  container = document.getElementById("commentsContainer")
+  let p = document.createElement("p")
+
+  p.innerText = comment
+  container.appendChild(p)
 }

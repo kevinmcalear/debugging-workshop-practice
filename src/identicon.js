@@ -11,7 +11,6 @@ class Identicon {
       this.colorString = `rgb(${hashedArr[0]}, ${hashedArr[1]}, ${hashedArr[2]})`
       this.positions = new Array(5);
 
-
       for (let column = 0; column < 5; column++) {
         if (column > 2) {
           this.positions[column] = this.positions[5-(column+1)]

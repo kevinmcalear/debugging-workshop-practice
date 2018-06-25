@@ -6,6 +6,10 @@ html {
   min-height: 100%;
   animation: TackyGradient 12s ease infinite;
 }
+html * {
+   font-family: sans-serif !important;
+}
+
 
 #main {
   margin: 25px auto;
@@ -17,6 +21,23 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+#comments {
+  margin: 25px auto;
+  padding: 20px;
+  width: 500px;
+  height: auto;
+  background-color: rgb(245, 245, 250);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.comment {
+  width: 100%;
+  display: grid;
 }
 
 .field {
