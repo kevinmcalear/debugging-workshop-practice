@@ -30,5 +30,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("identicon-form")
   form.addEventListener("submit", handleSubmit)
   const commentForm = document.getElementById("comment-form")
-  commentForm.addEventListener("submit", newComment)
+  form.addEventListener("submit", newComment)
 })
