@@ -10,7 +10,6 @@ function loadComments(seed) {
   fetch(`http://localhost:3001/comments?seed=${seed}`)
     .then(resp => resp.json())
     .then(resp => {
-      console.log(resp)
       comments = resp.map(comment => comment.content)
       updateComments(comments)
     })
@@ -24,8 +23,6 @@ function newComment(e) {
   fetch(`http://localhost:3001/comments?content=${comment}&seed=${seed}`, {
     method: 'POST'
   }).then(resp => resp.json()).then(resp => {
-    console.log(resp)
-
     addComment(resp.content)
     e.target[0].value = ""
   })
