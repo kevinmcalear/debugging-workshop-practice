@@ -17,7 +17,7 @@ function loadComments(seed) {
 
 function newComment(e) {
   e.preventDefault();
-  comment = e.target[0].value
+  comment = e.target.value
   seed = document.getElementById("identicon-form")[0].value
 
   fetch(`http://localhost:3001/comments?content=${comment}&seed=${seed}`, {
@@ -25,8 +25,6 @@ function newComment(e) {
   })
 
   addComment(comment)
-  e.target[0].value = ""
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {
