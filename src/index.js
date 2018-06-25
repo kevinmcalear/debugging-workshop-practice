@@ -16,7 +16,6 @@ function loadComments(seed) {
 }
 
 function newComment(e) {
-  e.preventDefault();
   comment = e.target.value
   seed = document.getElementById("identicon-form")[0].value
 
