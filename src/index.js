@@ -1,27 +1,33 @@
-function handleSubmit(e) {
+const handleSubmit = (e) => {
   e.preventDefault();
   inputString = e.target[0].value
   identicon = new Identicon(inputString);
   updateGravatar(identicon)
   loadComments(inputString)
-}
+};
 
-function loadComments(seed) {
-  fetch(`http://localhost:3001/comments?seed=${seed}`)
+function loadComments(gravatar) {
+  fetch(`http://localhost:3000/comments?gravatar=${gravatar}`)
     .then(resp => resp.json())
     .then(resp => {
-      comments = resp.map(comment => comment.content)
+      respComments = resp.map(c => c)
+      comments = respComments.map(comment => comment.content)
       updateComments(comments)
     })
 }
 
 function newComment(e) {
   comment = e.target.value
-  seed = document.getElementById("identicon-form")[0].value
+  gravatar = document.getElementById("identicon-form")[0].value
 
-  fetch(`http://localhost:3001/comments?content=${comment}&seed=${seed}`, {
-    method: 'POST'
-  })
+  fetch(`http://localhost:3000/comments`, {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      content: comment,
+      gravatar
+    })
+  });
 
   addComment(comment)
 }
