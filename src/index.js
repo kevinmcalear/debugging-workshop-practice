@@ -27,9 +27,11 @@ function newComment(e) {
       content: comment,
       gravatar
     })
-  });
+  }).then(r => { r.json() })
+    .then(function(stuff) {
+      addComment(comment)
+    });
 
-  addComment(comment)
 }
 
 document.addEventListener("DOMContentLoaded", () => {
