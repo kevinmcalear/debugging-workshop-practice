@@ -4,14 +4,16 @@ The goal of this challenge is to imitate a student/teacher interaction for an in
 
 The idea is that we can simultaneously assess a candidate's debugging skills and their ability to be patient with students and give thorough, precise explanations.
 
-You can find a fully functional version of the app in the `solution` branch. However, we want the candidate to go through the following steps, fixing each bug to help the student create a functional comment form. (You can cycle through branches to see potential pathways to a working solution. We expect every interview to be different)
+You can find a fully functional version of the app in the `solution` branch. However, we want the candidate to go through the following steps, fixing each bug to help the student create a functional comment form. We expect every interview to be different, so your mileage may vary.
 
-1. Form listener is set on the wrong form (`master` branch)
-2. Student forgets `event.preventDefault()` (`after-step-1` branch)
-3. Student doesn't get input value correctly (`after-step-2` branch)
-4. Student uses result of fetch improperly (`after-step-3` branch)
-5. Student doesn't clear comment container when loading new comments (`after-step-4` branch)
-6. Ask for feedback on code (`solution` branch, we may end up making a `dirty-solution` branch in the future but I think the code in `identicon.js` is gnarly enough)
+The challenge has the following bugs:
+
+1. New comment handler is set on the wrong form
+2. Student forgets `event.preventDefault()` in the `newComment` handler, causing the form to `POST`
+3. Student doesn't get input value correctly in the `newComment` handler
+4. Student uses result of fetch improperly
+5. Student doesn't clear comment container when loading new comments
+
 
 ---
 
