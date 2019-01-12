@@ -9,7 +9,7 @@ You can find a fully functional version of the app in the `solution` branch. How
 The challenge has the following bugs:
 
 1. New comment handler is set on the wrong form
-  - **important note:** because the `newComment` handler is attached to the wrong form, creating a new gravatar will create comments that are undefined. Use `flatiron` as your sample gravatar as it already has comments seeded in the db. These comments should appear on the page in the comments section.
+  - **important note:** because the `newComment` handler is attached to the wrong form, creating a new gravatar will create comments that are undefined. Use `flatiron` as your sample gravatar as it already has comments seeded in the db. The sample comments should be appended to the `#comments-container` div.
 2. Student forgets `event.preventDefault()` in the `newComment` handler, causing the form to `POST`
 3. Student doesn't get input value correctly in the `newComment` handler
 4. Student uses result of fetch improperly
