@@ -1,5 +1,4 @@
 function handleSubmit(e) {
-  e.preventDefault();
   inputString = e.target[0].value
   identicon = new Identicon(inputString);
   updateGravatar(identicon)
@@ -15,10 +14,7 @@ function loadComments(gravatar) {
     })
 }
 
-function newComment(e) {
-  comment = e.target.value
-  gravatar = document.getElementById("identicon-form")[0].value
-
+function newComment(comment, gravatar) {
   fetch(`http://localhost:3000/comments`, {
     method: 'POST',
     headers: {
@@ -30,13 +26,23 @@ function newComment(e) {
       gravatar: gravatar
     })
   })
-
-  addComment(comment)
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("identicon-form")
-  form.addEventListener("submit", handleSubmit)
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault()
+    handleSubmit(event)
+  })
+
   const commentForm = document.getElementById("comment-form")
-  form.addEventListener("submit", newComment)
+  const gravatar = document.getElementById("identicon-form")[0].value
+
+  commentForm.addEventListener("submit", (event) => {
+    const comment = document.querySelector('#comment-form > div > input[type="text"]')
+    const gravatar = document.getElementById("identicon-form")[0].value
+    newComment(comment, gravatar)
+    loadComments(gravatar)
+  })
 })
